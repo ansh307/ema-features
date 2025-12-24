@@ -110,7 +110,7 @@ const WhatSection = () => {
                   }
                 >
                   {/* CARD CONTENT */}
-                  <div className="h-full flex flex-col justify-between px-8 py-6 ">
+                  <div className="h-full hidden sm:flex flex-col justify-between px-8 py-6 ">
                     {/* Text */}
                     <div>
                       <p className="text-xl mb-3 opacity-80">{item.step}</p>
@@ -134,7 +134,7 @@ const WhatSection = () => {
                   </div>
                   {/* LOTTIE */}
                   <div
-                    className={`absolute top-0 right-0 w-[70%] h-full flex items-center justify-center transition-all duration-700 ${
+                    className={`absolute top-0 right-0 w-[70%] h-full hidden sm:flex items-center justify-center transition-all duration-700 ${
                       isActive
                         ? "opacity-100 scale-100"
                         : "opacity-0 scale-95 pointer-events-none"
@@ -147,6 +147,43 @@ const WhatSection = () => {
                       loop
                       className="w-[360px]"
                     />
+                  </div>
+
+                  <div className="flex flex-col sm:hidden justify-between h-full p-6">
+                    <p className="text-xl mb-3 opacity-80">{item.step}</p>
+                    {/* LOTTIE */}
+                    <div
+                      className={`absolute top-0 left-1/2 -translate-x-1/2 w-[70%] h-full items-center justify-center transition-all duration-700 ${
+                        isActive
+                          ? "opacity-100 scale-85"
+                          : "opacity-0 scale-50 pointer-events-none"
+                      }`}
+                    >
+                      <Lottie
+                        key={i} // 🔥 ensures correct instance per card
+                        animationData={animations[i]}
+                        autoplay
+                        loop
+                        className="w-[360px]"
+                      />
+                    </div>
+                    <div className="z-10">
+                      <h3
+                        className={`text-2xl md:text-3xl font-normal mb-6 max-w-xs${
+                          isActive ? "" : "hidden"
+                        }`}
+                      >
+                        {item.title}
+                      </h3>
+
+                      <p
+                        className={`max-w-xs leading-relaxed text-lg opacity-90 ${
+                          isActive ? "" : "hidden"
+                        }`}
+                      >
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
                 </div>
               );

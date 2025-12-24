@@ -3,7 +3,7 @@ import React from "react";
 
 const ImageContainer = () => {
   return (
-    <div className="relative w-full h-[60vh] sm:h-[70vh] overflow-hidden -mt-50 z-0">
+    <div className="relative w-full h-[60vh] sm:h-[70vh] overflow-hidden -mt-50 sm:mt-0 z-0">
       <Image
         src="/whatsection.png"
         alt="What section background"
